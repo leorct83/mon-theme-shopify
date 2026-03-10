@@ -1,0 +1,518 @@
+/* ============================================
+   ESCAPE GAME THEME - Custom CSS
+   Dark theme with neon glow effects
+   ============================================ */
+
+/* ---- Neon Text Glow Effects ---- */
+.neon-text {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+}
+
+.neon-text--cyan {
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff, 0 0 80px rgba(0, 240, 255, 0.3);
+}
+
+.neon-text--magenta {
+  color: #ff00ff;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px rgba(255, 0, 255, 0.3);
+}
+
+.neon-text--violet {
+  color: #8b00ff;
+  text-shadow: 0 0 10px #8b00ff, 0 0 20px #8b00ff, 0 0 40px #8b00ff, 0 0 80px rgba(139, 0, 255, 0.3);
+}
+
+.neon-text--green {
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 40px #00ff88, 0 0 80px rgba(0, 255, 136, 0.3);
+}
+
+/* ---- Neon Button Effects ---- */
+.btn-neon {
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(139, 0, 255, 0.4), 0 0 30px rgba(139, 0, 255, 0.1);
+  cursor: pointer;
+}
+
+.btn-neon:hover {
+  box-shadow: 0 0 25px rgba(139, 0, 255, 0.6), 0 0 50px rgba(139, 0, 255, 0.3), 0 0 80px rgba(139, 0, 255, 0.1);
+  transform: translateY(-2px);
+  background: #ff00ff !important;
+}
+
+.btn-neon:active {
+  transform: translateY(0);
+}
+
+/* ---- Escape Card Styles ---- */
+.escape-card {
+  background: #0d0d2b;
+  border: 1px solid #1a1a3a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.escape-card:hover {
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), 0 0 40px rgba(0, 240, 255, 0.1), inset 0 0 20px rgba(0, 240, 255, 0.05);
+  transform: translateY(-5px);
+}
+
+.escape-card__image {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+}
+
+.escape-card__image img,
+.escape-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.escape-card:hover .escape-card__image img,
+.escape-card:hover .escape-card__img {
+  transform: scale(1.05);
+}
+
+.escape-card__body {
+  padding: 1.5rem;
+}
+
+.escape-card__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  color: #ffffff;
+}
+
+.escape-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #b0b0c0;
+}
+
+.escape-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.escape-card__meta-item svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.escape-card__description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #a0a0b0;
+  margin: 0 0 1.5rem;
+}
+
+.escape-card__cta {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+/* ---- Scroll Animations ---- */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ---- Hero Section ---- */
+.escape-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: #0a0a1a;
+}
+
+.escape-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.escape-hero__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.escape-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.escape-hero__title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.escape-hero__subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  margin: 0 0 2.5rem;
+  opacity: 0.85;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.escape-hero__cta {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+}
+
+/* ---- Rooms Grid ---- */
+.escape-rooms {
+  padding: 4rem 0;
+}
+
+.escape-rooms__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* ---- Section Headers ---- */
+.escape-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.escape-section-header__title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.escape-section-header__subtitle {
+  font-size: 1rem;
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.escape-section-header__line {
+  width: 60px;
+  height: 3px;
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* ---- How It Works / Steps ---- */
+.escape-steps {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.escape-steps__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.escape-step {
+  position: relative;
+}
+
+.escape-step__number {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 auto 1.5rem;
+  border: 2px solid;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.escape-step__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+}
+
+.escape-step__description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.escape-step--1 .escape-step__number {
+  color: #00f0ff;
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3), 0 0 40px rgba(0, 240, 255, 0.1);
+}
+
+.escape-step--2 .escape-step__number {
+  color: #8b00ff;
+  border-color: #8b00ff;
+  box-shadow: 0 0 20px rgba(139, 0, 255, 0.3), 0 0 40px rgba(139, 0, 255, 0.1);
+}
+
+.escape-step--3 .escape-step__number {
+  color: #00ff88;
+  border-color: #00ff88;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 40px rgba(0, 255, 136, 0.1);
+}
+
+/* ---- Testimonials ---- */
+.escape-testimonials {
+  padding: 5rem 0;
+}
+
+.escape-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.escape-testimonial {
+  background: #0d0d2b;
+  border: 1px solid #1a1a3a;
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.escape-testimonial:hover {
+  border-color: #ff00ff40;
+}
+
+.escape-testimonial__stars {
+  color: #ff6b35;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+.escape-testimonial__text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 1.5rem;
+  color: #c0c0d0;
+}
+
+.escape-testimonial__author {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.escape-testimonial__room {
+  font-size: 0.8rem;
+  color: #00f0ff;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* ---- FAQ ---- */
+.escape-faq {
+  padding: 5rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.escape-faq__item {
+  border-bottom: 1px solid #1a1a3a;
+}
+
+.escape-faq__question {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1.5rem 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  transition: color 0.3s ease;
+}
+
+.escape-faq__question:hover {
+  color: #00f0ff;
+}
+
+.escape-faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.escape-faq__icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  color: #8b00ff;
+  flex-shrink: 0;
+}
+
+.escape-faq__item[open] .escape-faq__icon {
+  transform: rotate(45deg);
+}
+
+.escape-faq__answer {
+  padding: 0 0 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #a0a0b0;
+}
+
+.escape-faq__answer p {
+  margin: 0;
+}
+
+/* ---- Particles ---- */
+.escape-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ---- Text Gradient Utility ---- */
+.text-gradient {
+  background: linear-gradient(135deg, #00f0ff, #8b00ff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .escape-rooms__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .escape-steps__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .escape-testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .escape-hero__title {
+    font-size: 2.5rem;
+  }
+
+  .escape-hero__cta {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .escape-card__meta {
+    gap: 0.6rem;
+  }
+
+  .escape-section-header__title {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,83 @@
+{{ 'escape-game.css' | asset_url | stylesheet_tag }}
+
+<section class="escape-faq color-{{ section.settings.color_scheme }}" id="escape-faq-{{ section.id }}" style="padding:{{ section.settings.padding_top }}px 1.5rem {{ section.settings.padding_bottom }}px;">
+  <div class="escape-section-header fade-in-up">
+    {% if section.settings.title != blank %}
+      <h2 class="escape-section-header__title neon-text--{{ section.settings.title_color }}">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.subtitle != blank %}
+      <p class="escape-section-header__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+    <div class="escape-section-header__line" style="background:{% case section.settings.title_color %}{% when 'cyan' %}#00f0ff{% when 'magenta' %}#ff00ff{% when 'violet' %}#8b00ff{% when 'green' %}#00ff88{% endcase %};"></div>
+  </div>
+
+  {% for block in section.blocks %}
+    <details class="escape-faq__item fade-in-up delay-{{ forloop.index }}" {{ block.shopify_attributes }}>
+      <summary class="escape-faq__question">
+        <span>{{ block.settings.question }}</span>
+        <span class="escape-faq__icon">+</span>
+      </summary>
+      <div class="escape-faq__answer">
+        {{ block.settings.answer }}
+      </div>
+    </details>
+  {% endfor %}
+</section>
+
+<script>
+(function(){
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) { if(entry.isIntersecting) entry.target.classList.add('is-visible'); });
+  }, {threshold:0.1});
+  document.querySelectorAll('#escape-faq-{{ section.id }} .fade-in-up').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Escape Game",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titre", "default": "Questions fréquentes" },
+    { "type": "textarea", "id": "subtitle", "label": "Sous-titre", "default": "Tout ce que vous devez savoir avant votre aventure" },
+    {
+      "type": "select",
+      "id": "title_color",
+      "label": "Couleur néon",
+      "options": [
+        { "value": "cyan", "label": "Cyan" },
+        { "value": "magenta", "label": "Magenta" },
+        { "value": "violet", "label": "Violet" },
+        { "value": "green", "label": "Vert" }
+      ],
+      "default": "cyan"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "range", "id": "padding_top", "label": "Espacement haut", "min": 0, "max": 100, "step": 4, "default": 60 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacement bas", "min": 0, "max": 100, "step": 4, "default": 60 }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Combien de temps dure une session ?" },
+        { "type": "richtext", "id": "answer", "label": "Réponse", "default": "<p>Nos sessions durent entre 60 et 75 minutes selon la salle choisie.</p>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Escape Game",
+      "blocks": [
+        { "type": "faq", "settings": { "question": "Combien de temps dure une session ?", "answer": "<p>Nos sessions durent entre 60 et 75 minutes selon la salle choisie. Prévoyez environ 15 minutes supplémentaires pour le briefing et le debriefing.</p>" }},
+        { "type": "faq", "settings": { "question": "Quel est le prix par personne ?", "answer": "<p>Les tarifs varient de 25€ à 35€ par personne selon la salle et le nombre de participants. Plus vous êtes nombreux, moins c'est cher par personne !</p>" }},
+        { "type": "faq", "settings": { "question": "Y a-t-il un âge minimum ?", "answer": "<p>Nos salles sont accessibles à partir de 12 ans accompagné d'un adulte, et à partir de 16 ans en autonomie.</p>" }},
+        { "type": "faq", "settings": { "question": "Faut-il être sportif ?", "answer": "<p>Pas du tout ! Nos escape games font appel à la logique, l'observation et l'esprit d'équipe. Aucune force physique n'est requise.</p>" }},
+        { "type": "faq", "settings": { "question": "Que se passe-t-il si on ne s'échappe pas à temps ?", "answer": "<p>Pas de panique ! Notre game master vous accompagne et peut donner des indices. L'aventure reste mémorable même sans victoire !</p>" }},
+        { "type": "faq", "settings": { "question": "Peut-on réserver pour un événement privé ?", "answer": "<p>Absolument ! Nous proposons des formules anniversaires, EVJF/EVG, team building. Contactez-nous pour un devis personnalisé.</p>" }}
+      ]
+    }
+  ]
+}
+{% endschema %}

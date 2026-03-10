@@ -8,283 +8,209 @@
  * ------------------------------------------------------------
  */{
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
+    "escape_hero": {
+      "type": "escape-hero",
       "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "title": "Oserez-vous entrer ?",
+        "subtitle": "Plongez dans l'aventure. Résolvez les énigmes. Échappez-vous avant qu'il ne soit trop tard.",
+        "button_text": "Réserver maintenant",
+        "button_link": "",
+        "overlay_opacity": 60,
+        "glow_color": "cyan",
+        "color_scheme": "scheme-1"
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "escape_rooms": {
+      "type": "escape-rooms",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "room_1": {
+          "type": "room",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "title": "Le Manoir Hanté",
+            "difficulty": 3,
+            "duration": "60 min",
+            "players": "2-6 joueurs",
+            "success_rate": "35",
+            "description": "Piégés dans un manoir mystérieux, vous avez 60 minutes pour résoudre les énigmes et trouver la sortie avant que les esprits ne se réveillent...",
+            "button_text": "Réserver cette salle"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "room_2": {
+          "type": "room",
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "title": "Le Braquage",
+            "difficulty": 4,
+            "duration": "60 min",
+            "players": "3-8 joueurs",
+            "success_rate": "25",
+            "description": "Le casse du siècle vous attend. Déjouez les systèmes de sécurité, trouvez le coffre et repartez avec le butin avant l'arrivée de la police...",
+            "button_text": "Réserver cette salle"
+          }
+        },
+        "room_3": {
+          "type": "room",
+          "settings": {
+            "title": "Le Laboratoire Secret",
+            "difficulty": 5,
+            "duration": "75 min",
+            "players": "2-5 joueurs",
+            "success_rate": "15",
+            "description": "Un scientifique fou a créé un virus mortel. Infiltrez son laboratoire, trouvez l'antidote et sauvez l'humanité en moins de 75 minutes...",
+            "button_text": "Réserver cette salle"
+          }
         }
       },
-      "name": "Featured collection",
+      "block_order": ["room_1", "room_2", "room_3"],
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
+        "title": "Nos salles",
+        "subtitle": "Choisissez votre aventure et tentez de vous échapper",
+        "title_color": "violet",
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "escape_how_it_works": {
+      "type": "escape-how-it-works",
+      "blocks": {
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "step_icon": "📅",
+            "title": "Réservez",
+            "description": "Choisissez votre salle et votre créneau en ligne en quelques clics."
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "step_icon": "🧩",
+            "title": "Jouez",
+            "description": "Plongez dans l'aventure avec votre équipe. Fouillez, réfléchissez, collaborez !"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "step_icon": "🏆",
+            "title": "Évadez-vous",
+            "description": "Résolvez toutes les énigmes avant la fin du temps imparti pour remporter la victoire !"
+          }
+        }
+      },
+      "block_order": ["step_1", "step_2", "step_3"],
+      "settings": {
+        "title": "Comment ça marche ?",
+        "subtitle": "Une expérience simple à réserver, intense à vivre",
+        "title_color": "green",
+        "color_scheme": "scheme-2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "escape_testimonials": {
+      "type": "escape-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "text": "Une expérience incroyable ! On a adoré chaque minute. Les énigmes sont bien pensées et l'ambiance est dingue. On reviendra !",
+            "author": "Marie D.",
+            "room": "Le Manoir Hanté"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "text": "Notre meilleur escape game à ce jour ! Le scénario du Braquage est hyper immersif. On s'est vraiment crus dans un film.",
+            "author": "Thomas L.",
+            "room": "Le Braquage"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 4,
+            "text": "Super ambiance, énigmes challengeantes mais faisables. Le game master était top. Parfait pour un anniversaire !",
+            "author": "Sophie M.",
+            "room": "Le Laboratoire Secret"
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
+      "settings": {
+        "title": "Ce qu'ils en disent",
+        "subtitle": "Les retours de nos aventuriers",
+        "title_color": "magenta",
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "escape_faq": {
+      "type": "escape-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "Combien de temps dure une session ?",
+            "answer": "<p>Nos sessions durent entre 60 et 75 minutes selon la salle choisie. Prévoyez environ 15 minutes supplémentaires pour le briefing et le debriefing.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Quel est le prix par personne ?",
+            "answer": "<p>Les tarifs varient de 25€ à 35€ par personne selon la salle et le nombre de participants. Plus vous êtes nombreux, moins c'est cher par personne !</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "Y a-t-il un âge minimum ?",
+            "answer": "<p>Nos salles sont accessibles à partir de 12 ans accompagné d'un adulte, et à partir de 16 ans en autonomie. Certaines salles peuvent avoir des restrictions spécifiques.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Faut-il être sportif ou avoir des connaissances spéciales ?",
+            "answer": "<p>Pas du tout ! Nos escape games font appel à la logique, l'observation et l'esprit d'équipe. Aucune force physique ni connaissance particulière n'est requise.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "Que se passe-t-il si on ne trouve pas la sortie à temps ?",
+            "answer": "<p>Pas de panique ! Notre game master vous accompagne tout au long de la partie et peut vous donner des indices si besoin. Et même si vous ne réussissez pas à vous échapper, l'aventure reste mémorable !</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "Peut-on réserver pour un événement privé ?",
+            "answer": "<p>Absolument ! Nous proposons des formules pour les anniversaires, enterrements de vie de célibataire, team building d'entreprise et autres événements. Contactez-nous pour un devis personnalisé.</p>"
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6"],
+      "settings": {
+        "title": "Questions fréquentes",
+        "subtitle": "Tout ce que vous devez savoir avant votre aventure",
+        "title_color": "cyan",
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "escape_hero",
+    "escape_rooms",
+    "escape_how_it_works",
+    "escape_testimonials",
+    "escape_faq"
   ]
 }

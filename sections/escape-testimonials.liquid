@@ -1,0 +1,89 @@
+{{ 'escape-game.css' | asset_url | stylesheet_tag }}
+
+<section class="escape-testimonials color-{{ section.settings.color_scheme }}" id="escape-testimonials-{{ section.id }}" style="padding:{{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;">
+    <div class="escape-section-header fade-in-up">
+      {% if section.settings.title != blank %}
+        <h2 class="escape-section-header__title neon-text--{{ section.settings.title_color }}">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="escape-section-header__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      <div class="escape-section-header__line" style="background:{% case section.settings.title_color %}{% when 'cyan' %}#00f0ff{% when 'magenta' %}#ff00ff{% when 'violet' %}#8b00ff{% when 'green' %}#00ff88{% endcase %};"></div>
+    </div>
+
+    <div class="escape-testimonials__grid">
+      {% for block in section.blocks %}
+        <div class="escape-testimonial fade-in-up delay-{{ forloop.index }}" {{ block.shopify_attributes }}>
+          <div class="escape-testimonial__stars">
+            {% for i in (1..5) %}{% if i <= block.settings.rating %}★{% else %}☆{% endif %}{% endfor %}
+          </div>
+          <p class="escape-testimonial__text">"{{ block.settings.text }}"</p>
+          <div>
+            <span class="escape-testimonial__author">{{ block.settings.author }}</span>
+            {% if block.settings.room != blank %}
+              <span class="escape-testimonial__room">{{ block.settings.room }}</span>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) { if(entry.isIntersecting) entry.target.classList.add('is-visible'); });
+  }, {threshold:0.1});
+  document.querySelectorAll('#escape-testimonials-{{ section.id }} .fade-in-up').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Témoignages",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titre", "default": "Ce qu'ils en disent" },
+    { "type": "textarea", "id": "subtitle", "label": "Sous-titre", "default": "Les retours de nos aventuriers" },
+    {
+      "type": "select",
+      "id": "title_color",
+      "label": "Couleur néon",
+      "options": [
+        { "value": "cyan", "label": "Cyan" },
+        { "value": "magenta", "label": "Magenta" },
+        { "value": "violet", "label": "Violet" },
+        { "value": "green", "label": "Vert" }
+      ],
+      "default": "magenta"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "range", "id": "padding_top", "label": "Espacement haut", "min": 0, "max": 100, "step": 4, "default": 60 },
+    { "type": "range", "id": "padding_bottom", "label": "Espacement bas", "min": 0, "max": 100, "step": 4, "default": 60 }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Témoignage",
+      "settings": [
+        { "type": "range", "id": "rating", "label": "Note (étoiles)", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "text", "label": "Témoignage", "default": "Une expérience incroyable ! On a adoré chaque minute." },
+        { "type": "text", "id": "author", "label": "Nom", "default": "Marie D." },
+        { "type": "text", "id": "room", "label": "Salle jouée", "default": "Le Manoir Hanté" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Témoignages",
+      "blocks": [
+        { "type": "testimonial", "settings": { "rating": 5, "text": "Une expérience incroyable ! On a adoré chaque minute. Les énigmes sont bien pensées et l'ambiance est dingue. On reviendra !", "author": "Marie D.", "room": "Le Manoir Hanté" }},
+        { "type": "testimonial", "settings": { "rating": 5, "text": "Notre meilleur escape game à ce jour ! Le scénario du Braquage est hyper immersif. On s'est vraiment crus dans un film.", "author": "Thomas L.", "room": "Le Braquage" }},
+        { "type": "testimonial", "settings": { "rating": 4, "text": "Super ambiance, énigmes challengeantes mais faisables. Le game master était top. Parfait pour un anniversaire !", "author": "Sophie M.", "room": "Le Laboratoire Secret" }}
+      ]
+    }
+  ]
+}
+{% endschema %}

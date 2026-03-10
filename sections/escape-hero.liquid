@@ -1,0 +1,165 @@
+{{ 'escape-game.css' | asset_url | stylesheet_tag }}
+
+<section class="escape-hero" id="escape-hero-{{ section.id }}">
+  {% if section.settings.image %}
+    <div class="escape-hero__bg">
+      {{ section.settings.image | image_url: width: 1920 | image_tag: loading: 'eager', class: 'escape-hero__bg-img' }}
+    </div>
+  {% else %}
+    <div class="escape-hero__bg escape-hero__bg--placeholder">
+      <div class="escape-hero__bg-gradient"></div>
+    </div>
+  {% endif %}
+
+  <div class="escape-hero__overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"></div>
+
+  <div class="escape-hero__particles" id="particles-{{ section.id }}"></div>
+
+  <div class="escape-hero__content fade-in-up">
+    {% if section.settings.title != blank %}
+      <h1 class="escape-hero__title neon-text--{{ section.settings.glow_color }}">
+        {{ section.settings.title }}
+      </h1>
+    {% endif %}
+
+    {% if section.settings.subtitle != blank %}
+      <p class="escape-hero__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_link }}" class="escape-hero__cta btn-neon" style="background: #8b00ff; color: #ffffff;">
+        {{ section.settings.button_text }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  #escape-hero-{{ section.id }} .escape-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  #escape-hero-{{ section.id }} .escape-hero__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #escape-hero-{{ section.id }} .escape-hero__bg--placeholder {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1628 100%);
+  }
+  #escape-hero-{{ section.id }} .escape-hero__bg-gradient {
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(139, 0, 255, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
+  }
+  #escape-hero-{{ section.id }} .escape-hero__overlay {
+    background: linear-gradient(180deg, rgba(10,10,26,0.2) 0%, rgba(10,10,26,0.7) 60%, rgba(10,10,26,0.95) 100%);
+  }
+</style>
+
+<script>
+  (function() {
+    var container = document.getElementById('particles-{{ section.id }}');
+    if (!container) return;
+    var colors = ['#00f0ff', '#8b00ff', '#ff00ff', '#00ff88'];
+    for (var i = 0; i < 25; i++) {
+      var particle = document.createElement('div');
+      particle.className = 'escape-particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.animationDuration = (15 + Math.random() * 20) + 's';
+      particle.style.animationDelay = (Math.random() * 15) + 's';
+      var size = (1 + Math.random() * 3) + 'px';
+      particle.style.width = size;
+      particle.style.height = size;
+      container.appendChild(particle);
+    }
+  })();
+
+  (function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('#escape-hero-{{ section.id }} .fade-in-up').forEach(function(el) {
+      observer.observe(el);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero Escape Game",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image de fond"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Oserez-vous entrer ?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Plongez dans l'aventure. Résolvez les énigmes. Échappez-vous avant qu'il ne soit trop tard."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texte du bouton",
+      "default": "Réserver maintenant"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Opacité de l'overlay",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 60
+    },
+    {
+      "type": "select",
+      "id": "glow_color",
+      "label": "Couleur du glow néon",
+      "options": [
+        { "value": "cyan", "label": "Cyan" },
+        { "value": "magenta", "label": "Magenta" },
+        { "value": "violet", "label": "Violet" },
+        { "value": "green", "label": "Vert" }
+      ],
+      "default": "cyan"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Escape Game"
+    }
+  ]
+}
+{% endschema %}
