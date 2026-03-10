@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "escape_hero": {
       "type": "escape-hero",
@@ -26,25 +27,29 @@
         "room_1": {
           "type": "room",
           "settings": {
+            "image": "shopify://shop_images/IMG_0754.jpg",
             "title": "Le Manoir Hanté",
             "difficulty": 3,
             "duration": "60 min",
             "players": "2-6 joueurs",
             "success_rate": "35",
             "description": "Piégés dans un manoir mystérieux, vous avez 60 minutes pour résoudre les énigmes et trouver la sortie avant que les esprits ne se réveillent...",
-            "button_text": "Réserver cette salle"
+            "button_text": "Réserver cette salle",
+            "link": ""
           }
         },
         "room_2": {
           "type": "room",
           "settings": {
+            "image": "shopify://shop_images/IMG_0004.jpg",
             "title": "Le Braquage",
             "difficulty": 4,
             "duration": "60 min",
             "players": "3-8 joueurs",
             "success_rate": "25",
             "description": "Le casse du siècle vous attend. Déjouez les systèmes de sécurité, trouvez le coffre et repartez avec le butin avant l'arrivée de la police...",
-            "button_text": "Réserver cette salle"
+            "button_text": "Réserver cette salle",
+            "link": ""
           }
         },
         "room_3": {
@@ -56,11 +61,16 @@
             "players": "2-5 joueurs",
             "success_rate": "15",
             "description": "Un scientifique fou a créé un virus mortel. Infiltrez son laboratoire, trouvez l'antidote et sauvez l'humanité en moins de 75 minutes...",
-            "button_text": "Réserver cette salle"
+            "button_text": "Réserver cette salle",
+            "link": ""
           }
         }
       },
-      "block_order": ["room_1", "room_2", "room_3"],
+      "block_order": [
+        "room_1",
+        "room_2",
+        "room_3"
+      ],
       "settings": {
         "title": "Nos salles",
         "subtitle": "Choisissez votre aventure et tentez de vous échapper",
@@ -98,7 +108,11 @@
           }
         }
       },
-      "block_order": ["step_1", "step_2", "step_3"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
       "settings": {
         "title": "Comment ça marche ?",
         "subtitle": "Une expérience simple à réserver, intense à vivre",
@@ -139,7 +153,11 @@
           }
         }
       },
-      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
       "settings": {
         "title": "Ce qu'ils en disent",
         "subtitle": "Les retours de nos aventuriers",
@@ -195,7 +213,14 @@
           }
         }
       },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6"],
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ],
       "settings": {
         "title": "Questions fréquentes",
         "subtitle": "Tout ce que vous devez savoir avant votre aventure",
